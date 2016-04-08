@@ -73,7 +73,6 @@ class LinkedList(object):
         if self.head is None:
             return ""
         else:
-            string = str(self.head.value)
             node = self.head
             while node != None:
                 string = string + " " + str(node.value)
