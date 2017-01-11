@@ -3,7 +3,9 @@
     Description: Implementation of a binary search tree
 """
 
-from Queue import Queue # for breadth first traversal
+
+from Queue import Queue  # for breadth first traversal
+
 
 class Node:
     """
