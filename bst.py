@@ -58,7 +58,7 @@ class Tree:
             return self.__search(value, self.root)
 
     def __search(self, value, node):
-        if value == node.value:
+        if value is node.value:
             return node
         else:
             if value < node.value and node.left is not None:
@@ -77,48 +77,48 @@ class Tree:
     # to delete is located. Then we drop the substitue node when
     # has been copied in position.
     def delete(self, value):
-        if self.root == None:
+        if self.root is None:
             return None
         else:
             self.__delete(value, self.root)
 
     def __delete(self, value, node):
-        if node.value == value:
+        if node.value is value:
             # found the node to delete
             # we can have situations of:
             # 0 child (leaf node)
             # 1 child
             # 2 child (most difficut)
-            if node.left == None and node.right == None:
+            if node.left is None and node.right is None:
                 node.parent.left = None
                 node.parent.right = None
-            elif node.left != None and node.right == None:
+            elif node.left is not None and node.right is None:
                 # 1 child only left
-                #print '1 child left
+                # print '1 child left
                 node.value = node.left.value
                 node.right = node.left.right
                 node.left = node.left.left
-            elif node.right != None and node.left == None:
+            elif node.right is not None and node.left is None:
                 # 1 child only right
                 # print '1 child right'
                 node.value = node.right.value
                 node.left = node.right.left
                 node.right = node.right.right
-            elif node.left != None and node.right != None:
+            elif node.left is not None and node.right is not None:
                 # 2 childs
                 # print '2 childs'
                 new_node = self.__min(node.right)
                 node.value = new_node.value
                 if node.right is new_node:
                     node.right = new_node.right
-                    #node.left = new_node.left
+                    # node.left = new_node.left
                 else:
-                    if new_node.left == None and new_node.right != None:
+                    if new_node.left is None and new_node.right is not None:
                         new_node.parent.left = new_node.right
                     else:
                         new_node.parent.left = None
             # detach the current node
-            #node = None
+            # node = None
             self.count = self.count - 1
         else:
             if value < node.value:
@@ -130,13 +130,13 @@ class Tree:
 
     # Get the min node (min val)
     def min(self):
-        if self.root == None:
+        if self.root is None:
             return None
         else:
             return self.__min(self.root)
 
     def __min(self, node):
-        if node.left == None:
+        if node.left is None:
             return node
         else:
             return self.__min(node.left)
@@ -148,53 +148,53 @@ class Tree:
     # Complexity: O(n)
 
     def inorder(self):
-        if self.root == None:
-            print 'Empty tree'
+        if self.root is None:
+            print('Empty tree')
         else:
             self.__inorder(self.root)
 
     def __inorder(self, node):
-        if node != None:
+        if node is not None:
             self.__inorder(node.left)
-            print str(node.value)
+            print(str(node.value))
             self.__inorder(node.right)
 
     def preorder(self):
-        if self.root == None:
-            print 'Empty tree'
+        if self.root is None:
+            print('Empty tree')
         else:
             self.__preorder(self.root)
 
     def __preorder(self, node):
-        if node != None:
-            print str(node.value)
+        if node is not None:
+            print(str(node.value))
             self.__preorder(node.left)
             self.__preorder(node.right)
 
     def postorder(self):
-        if self.root == None:
-            print 'Empty tree'
+        if self.root is None:
+            print('Empty tree')
         else:
             self.__postorder(self.root)
 
     def __postorder(self, node):
-        if node != None:
+        if node is not None:
             self.__postorder(node.left)
             self.__postorder(node.right)
-            print str(node.value)
+            print(str(node.value))
 
     # Breadth First Traversal:
     # Implementation using a Queue, first the node is printed then its child nodes
     # are put into a FIFO. You iterate until no nodes are left in the queue.
     def breadth(self):
-        if self.root == None:
-            print 'Empty tree'
+        if self.root is None:
+            print('Empty tree')
         else:
             q = Queue()
             q.put(self.root)
             while (q.empty() is not True):
                 node = q.get()
-                print node.value,
+                print(node.value),
                 if node.left is not None:
                     q.put(node.left)
                 if node.right is not None:

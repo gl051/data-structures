@@ -3,6 +3,7 @@
     Description: Implementation of an Array data structure
 """
 
+
 class Array(object):
     """
         Python has already `list` that acts as an arrya, but  we are going
@@ -54,7 +55,7 @@ class Array(object):
             raise IndexError('Index for array must be an integer')
 
     def __check_value(self, value):
-        if not isinstance(value, basestring):
+        if not isinstance(value, str):
             raise TypeError('Value for array must be a string')
 
     # Special methods Implementation

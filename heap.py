@@ -1,12 +1,13 @@
 """
-	Author: Gianluca Biccari
-	Description: Heap implementation
+    Author: Gianluca Biccari
+    Description: Heap implementation
 """
+
 
 class Heap(object):
 	"""
-		Heap can be easily implemented with an array, not using the first
-		element helps managing the indexes to move between nodes:
+        Heap can be easily implemented with an array, not using the first
+        element helps managing the indexes to move between nodes:
 	"""
 
 	def __init__(self):
@@ -71,7 +72,7 @@ class Heap(object):
 			if current_val <= min_val:
 				return
 			else:
-				self.array[pos], self.array[min_pos] =  min_val, current_val
+				self.array[pos], self.array[min_pos] = min_val, current_val
 				self.__perculate_down(min_pos)
 
 

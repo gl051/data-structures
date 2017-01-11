@@ -3,6 +3,7 @@
     Description: Implementation of a Queue
 """
 
+
 class Queue(object):
     def __init__(self):
         self.qlist = []
@@ -13,7 +14,7 @@ class Queue(object):
     def pop(self):
         val = None
         if len(self.qlist) == 1:
-            val = l.pop()
+            val = self.qlist.pop()
         else:
             val = self.qlist[0]
             self.qlist = self.qlist[1:]

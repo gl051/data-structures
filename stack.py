@@ -3,6 +3,7 @@
     Description: Implementation of a Stack
 """
 
+
 class Stack(object):
     """
         We implement the stack using the internal data type list, but we could

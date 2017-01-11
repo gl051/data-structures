@@ -3,6 +3,7 @@
     Description: Implementation of an Hash Table with string keys
 """
 
+
 class HashTable(object):
     """
         Do-it by yourself implemenation in case you don't want to use the
@@ -17,11 +18,11 @@ class HashTable(object):
         # factor and eventually you could resize the table size.
         self.count = 0
         # conflicts resolution with chaining, we use a list per each slot
-        self.table = [ [] for i in range(1, self.size + 1)]
+        self.table = [[] for i in range(1, self.size + 1)]
 
     def hash_function(self, key):
         # raise an error if the key is not a string
-        if not isinstance(key, basestring):
+        if not isinstance(key, str):
             raise KeyError('Key for hash table must be a string')
         # hash value is build usin the reminder operator. we sum up the ordinal
         # value of each char using position to weight the value to avoid
@@ -47,7 +48,7 @@ class HashTable(object):
             hash_list.append(hash_data)
             self.count = self.count + 1
             if self.__load_factor() > self.__load_factor_threshold:
-                print 'Collision density warning - ', self.__load_factor()
+                print('Collision density warning - ', self.__load_factor())
 
     def get(self, key):
         hash_value = self.hash_function(key)
