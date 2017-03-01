@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """
     Author: Gianluca Biccari
     Description: Implementation of an Array data structure

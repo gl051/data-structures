@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """
     Author: Gianluca Biccari
     Description: Implementation of a binary search tree

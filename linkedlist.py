@@ -1,12 +1,16 @@
+#!/usr/bin/env python
+
 """
     Author: Gianluca Biccari
     Description: Linked List Implementation
 """
 
+
 class Node(object):
     def __init__(self, value):
         self.value = value
         self.next = None
+
 
 class LinkedList(object):
 
@@ -41,7 +45,7 @@ class LinkedList(object):
 
     def __delete(self, node, value):
         # delete needs to stay one node behind to adjust the link
-        if node.next == None:
+        if node.next is None:
             return
         else:
             if node.next.value == value:
@@ -57,7 +61,7 @@ class LinkedList(object):
             self.__search(self.head, value)
 
     def __search(self, node, value):
-        if (node == None) or (node.value == value):
+        if (node is None) or (node.value == value):
             return node.value
         else:
             self.__search(node.next, value)
@@ -74,7 +78,7 @@ class LinkedList(object):
             return ""
         else:
             node = self.head
-            while node != None:
+            while node is not None:
                 string = string + " " + str(node.value)
                 node = node.next
             return string
