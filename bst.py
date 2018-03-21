@@ -6,7 +6,7 @@
 """
 
 
-from Queue import Queue  # for breadth first traversal
+from queue import Queue  # for breadth first traversal
 
 
 class Node:
