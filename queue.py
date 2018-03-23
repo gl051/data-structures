@@ -7,6 +7,9 @@
 
 
 class Queue(object):
+    """
+        Implement the queue using a single list
+    """
     def __init__(self):
         self.qlist = []
 
@@ -29,3 +32,25 @@ class Queue(object):
 
     def __repr__(self):
         return str(self.qlist)
+
+
+ class Queue2():
+     """
+        Implementing the Queue using two list/stack
+     """
+
+     def __init__(self):
+        self.__listin = []
+        self.__listout = []
+   
+    def push(self, value):
+        self.__listin.append(value)
+  
+    def pop(self):
+        if len(self.__listout) > 0:
+            return self.__listout.pop()
+        else:
+            for val in range(len(self.__listin)):
+                pv = self.__listin.pop()
+                self.__listout.append(pv)
+                return self.__listout.pop()
